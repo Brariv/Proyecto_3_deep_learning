@@ -1,4 +1,7 @@
 """Utilidades de carga, submuestreo y preprocesamiento del dataset ASL Alphabet."""
+import os
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -52,6 +55,55 @@ def build_subsample(
             names.append(f"{cls}/{f.name}")
 
     X = np.stack(xs).astype(np.uint8)
+    y = np.array(ys, dtype=np.int64)
+    return X, y, names
+
+
+def _cargar_lote(args):
+    """Worker de la preparacion multinucleo: decodifica y redimensiona un lote de archivos.
+
+    Vive a nivel de modulo (no dentro del notebook) para que 'spawn' (Windows/macOS)
+    pueda serializarlo. Solo usa CPU: lectura de disco, decodificacion JPEG y resize.
+    """
+    rutas, size = args
+    return np.stack([load_image(Path(r), size) for r in rutas]).astype(np.uint8)
+
+
+def build_subsample_parallel(
+    n_per_class: int = 600,
+    img_size: int = 64,
+    seed: int = 42,
+    raw_dir: Path = RAW_TRAIN_DIR,
+    n_workers: int | None = None,
+    chunk: int = 64,
+) -> tuple[np.ndarray, np.ndarray, list[str]]:
+    """Version CPU-multinucleo de build_subsample.
+
+    Hace EXACTAMENTE la misma seleccion aleatoria (mismo rng, mismo orden) y devuelve
+    los mismos X, y, names que build_subsample; solo reparte la lectura + decodificacion
+    + resize de las imagenes entre n_workers procesos. Ninguna parte usa la GPU.
+    """
+    rng = np.random.default_rng(seed)
+    files_by_class = list_class_files(raw_dir)
+
+    rutas, ys, names = [], [], []
+    for label_idx, cls in enumerate(CLASSES):
+        files = files_by_class[cls]
+        n = min(n_per_class, len(files))
+        chosen = rng.choice(len(files), size=n, replace=False)
+        for i in chosen:
+            f = files[i]
+            rutas.append(str(f))
+            ys.append(label_idx)
+            names.append(f"{cls}/{f.name}")
+
+    n_workers = max(1, min(n_workers or os.cpu_count() or 1, 61))  # 61 = limite de Windows
+    lotes = [(rutas[i : i + chunk], img_size) for i in range(0, len(rutas), chunk)]
+    # 'spawn' en todos los SO: no se hace fork de un proceso que ya pudo inicializar CUDA.
+    with ProcessPoolExecutor(max_workers=n_workers, mp_context=get_context("spawn")) as ex:
+        partes = list(ex.map(_cargar_lote, lotes))  # map conserva el orden
+
+    X = np.concatenate(partes).astype(np.uint8)
     y = np.array(ys, dtype=np.int64)
     return X, y, names
 

@@ -36,6 +36,18 @@ Para reproducir en Windows:
 pip install torch pandas matplotlib seaborn scikit-learn pillow kaggle jupyterlab ipykernel opencv-python-headless
 ```
 
+## Proyecto 3 — Mejorando algoritmos con CUDA
+
+Este repositorio también contiene el Proyecto 3 (CC3069): acelerar con CUDA el entrenamiento de la `SmallCNN` de este laboratorio.
+
+* `notebooks/asl_lab3.ipynb` — línea base **secuencial (solo CPU)**; secciones 12–13: análisis y benchmark.
+* `notebooks/asl_cuda.ipynb` — versión **CUDA con kernels escritos a mano** (Numba CUDA, sin PyTorch) y la comparación.
+* `src/cuda_kernels.py`, `src/cuda_cnn.py` — kernels y red en GPU; `src/data_utils.py` — preparación de imágenes en CPU multinúcleo.
+* `pruebas/` — scripts bash que ejecutan, miden y comparan todo (`bash pruebas/run_all.sh`). Ver `pruebas/README.md`.
+
+Pipeline: **CPU multinúcleo** para archivos/imágenes (leer, decodificar, redimensionar, partir) y **GPU/CUDA exclusivamente** para la
+matemática de la red (forward, pérdida, backward, Adam).
+
 ## Cómo descargar el dataset
 
 1. Crear un token de API en https://www.kaggle.com/settings (sección API → "Create New Token").

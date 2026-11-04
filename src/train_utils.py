@@ -38,7 +38,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, lr=1e-3, wei
     model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     criterion = torch.nn.CrossEntropyLoss()
-    history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
+    history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": [], "epoch_time": []}
 
     for epoch in range(epochs):
         t0 = time.time()
@@ -62,6 +62,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, lr=1e-3, wei
         history["train_acc"].append(train_acc)
         history["val_loss"].append(val_loss)
         history["val_acc"].append(val_acc)
+        history["epoch_time"].append(time.time() - t0)
         if verbose:
             print(
                 f"epoch {epoch+1}/{epochs} "
