@@ -1,0 +1,437 @@
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+GPU: {'nombre': 'NVIDIA GeForce RTX 4070 Ti', 'compute_capability': [8, 9], 'multiprocesadores': 60, 'max_hilos_por_bloque': 1024, 'memoria_total_mb': 12282}
+ConfigBench(etiqueta='cuda', arquitectura='SmallCNN', n_per_class=600, img_size=64, epochs=15, batch_size=128, lr=0.001, weight_decay=0.0001, seed=42, workers=16, seq_threads=1, rep=1, raw_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\raw\\asl_alphabet_train\\asl_alphabet_train', processed_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\processed\\bench_cuda', salida_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\pruebas\\resultados')
+TILE=16  RED=256  TPB=256
+
+@cuda.jit(device=True)
+def _hash32(semilla, i):
+    """Entero pseudoaleatorio de 32 bits (hash PCG) a partir de (semilla, indice); solo aritmetica entera."""
+    s = (int64(i) * 747796405 + int64(semilla) * 2891336453 + 2891336453) & 0xFFFFFFFF
+    palabra = (((s >> ((s >> 28) + 4)) ^ s) * 277803737) & 0xFFFFFFFF
+    return ((palabra >> 22) ^ palabra) & 0xFFFFFFFF
+
+@cuda.jit
+def k_preparar_lote(x_u8, idx, off, out, n, C, H, W):
+    """out[b,c,y,x] = x_u8[idx[off+b], y, x, c] / 255.  (gather del lote + normalizacion)"""
+    i = cuda.grid(1)
+    if i < n * C * H * W:
+        xw = i % W
+        t = i // W
+        yh = t % H
+        t = t // H
+        c = t % C
+        b = t // C
+        s = int64(idx[off + b])
+        out[i] = float32(x_u8[((s * H + yh) * W + xw) * C + c]) / float32(255.0)
+
+@cuda.jit
+def k_conv3x3_relu(x, w, bias, out, n, cin, cout, H, W):
+    """out[b,co,y,x] = ReLU(bias[co] + sum_{ci,ky,kx} x[b,ci,y+ky-1,x+kx-1] * w[co,ci,ky,kx])"""
+    xo = cuda.blockIdx.x * TILE + cuda.threadIdx.x
+    yo = cuda.blockIdx.y * TILE + cuda.threadIdx.y
+    z = cuda.blockIdx.z                      # z = b * cout + co
+    if xo < W and yo < H:
+        b = z // cout
+        co = z % cout
+        acc = bias[co]
+        for ci in range(cin):
+            xbase = (b * cin + ci) * H * W
+            wbase = (co * cin + ci) * 9
+            for ky in range(3):
+                yi = yo + ky - 1
+                if yi >= 0 and yi < H:
+                    for kx in range(3):
+                        xi = xo + kx - 1
+                        if xi >= 0 and xi < W:
+                            acc += x[xbase + yi * W + xi] * w[wbase + ky * 3 + kx]
+        if acc < float32(0.0):
+            acc = float32(0.0)
+        out[(z * H + yo) * W + xo] = acc
+
+@cuda.jit
+def k_maxpool2(a, out, arg, n, c, H, W):
+    i = cuda.grid(1)
+    Ho = H // 2
+    Wo = W // 2
+    if i < n * c * Ho * Wo:
+        xo = i % Wo
+        t = i // Wo
+        yo = t % Ho
+        plano = t // Ho                       # plano = b * c + canal
+        base = plano * H * W
+        p = (2 * yo) * W + 2 * xo
+        mejor = a[base + p]
+        pos = p
+        v = a[base + p + 1]
+        if v > mejor:
+            mejor = v
+            pos = p + 1
+        v = a[base + p + W]
+        if v > mejor:
+            mejor = v
+            pos = p + W
+        v = a[base + p + W + 1]
+        if v > mejor:
+            mejor = v
+            pos = p + W + 1
+        out[i] = mejor
+        arg[i] = pos
+
+@cuda.jit
+def k_gemm(a, b, c, M, N, K, sa0, sa1, sb0, sb1):
+    tile_a = cuda.shared.array((TILE, TILE), float32)
+    tile_b = cuda.shared.array((TILE, TILE), float32)
+    tx = cuda.threadIdx.x
+    ty = cuda.threadIdx.y
+    fila = cuda.blockIdx.y * TILE + ty
+    col = cuda.blockIdx.x * TILE + tx
+    acc = float32(0.0)
+    for t in range((K + TILE - 1) // TILE):
+        ka = t * TILE + tx
+        if fila < M and ka < K:
+            tile_a[ty, tx] = a[fila * sa0 + ka * sa1]
+        else:
+            tile_a[ty, tx] = float32(0.0)
+        kb = t * TILE + ty
+        if kb < K and col < N:
+            tile_b[ty, tx] = b[kb * sb0 + col * sb1]
+        else:
+            tile_b[ty, tx] = float32(0.0)
+        cuda.syncthreads()
+        for k in range(TILE):
+            acc += tile_a[ty, k] * tile_b[k, tx]
+        cuda.syncthreads()
+    if fila < M and col < N:
+        c[fila * N + col] = acc
+
+@cuda.jit
+def k_bias_relu_dropout(z, bias, h, d, mask, n, F, umbral, escala, semilla, entrenando):
+    """h = ReLU(z + bias);  d = h * mascara.  Se descarta la activacion si hash32 < umbral = p_drop * 2^32;
+    las que sobreviven se escalan por 1/(1-p)."""
+    i = cuda.grid(1)
+    if i < n * F:
+        v = z[i] + bias[i % F]
+        if v < float32(0.0):
+            v = float32(0.0)
+        h[i] = v
+        m = float32(1.0)
+        if entrenando != 0:
+            if _hash32(semilla, i) >= umbral:
+                m = float32(escala)
+            else:
+                m = float32(0.0)
+        mask[i] = m
+        d[i] = v * m
+
+@cuda.jit
+def k_softmax_ce(z, bias, labels, idx, off, dlogits, stats, preds, poff, n, K):
+    """1 hilo por muestra. stats[0] += perdida, stats[1] += aciertos, preds[poff+b] = argmax."""
+    b = cuda.grid(1)
+    if b < n:
+        base = b * K
+        y = labels[idx[off + b]]
+        m = z[base] + bias[0]
+        arg = 0
+        for k in range(1, K):
+            v = z[base + k] + bias[k]
+            if v > m:
+                m = v
+                arg = k
+        s = float32(0.0)
+        for k in range(K):
+            s += math.exp(z[base + k] + bias[k] - m)
+        loss = math.log(s) - (z[base + y] + bias[y] - m)
+        inv_n = float32(1.0) / float32(n)
+        for k in range(K):
+            p = math.exp(z[base + k] + bias[k] - m) / s
+            if k == y:
+                p = p - float32(1.0)
+            dlogits[base + k] = p * inv_n
+        cuda.atomic.add(stats, 0, loss)
+        if arg == y:
+            cuda.atomic.add(stats, 1, float32(1.0))
+        preds[poff + b] = arg
+
+@cuda.jit
+def k_suma_columnas(d, out, n, F):
+    """out[f] = sum_b d[b*F + f]   (gradiente del sesgo de una capa densa)"""
+    f = cuda.grid(1)
+    if f < F:
+        s = float32(0.0)
+        for b in range(n):
+            s += d[b * F + f]
+        out[f] = s
+
+@cuda.jit
+def k_dropout_relu_bwd(dd, mask, h, dz, total):
+    i = cuda.grid(1)
+    if i < total:
+        g = dd[i] * mask[i]
+        if h[i] <= float32(0.0):
+            g = float32(0.0)
+        dz[i] = g
+
+@cuda.jit
+def k_pool_relu_bwd(dpool, arg, a, dz, n, c, H, W):
+    """Retropropaga a traves de max-pool 2x2 y de la ReLU anterior (version 'gather':
+    cada hilo mira su pixel de entrada, no hay condiciones de carrera ni atomicas)."""
+    i = cuda.grid(1)
+    if i < n * c * H * W:
+        xw = i % W
+        t = i // W
+        yh = t % H
+        plano = t // H
+        Ho = H // 2
+        Wo = W // 2
+        j = (plano * Ho + yh // 2) * Wo + xw // 2
+        g = float32(0.0)
+        if arg[j] == yh * W + xw and a[i] > float32(0.0):
+            g = dpool[j]
+        dz[i] = g
+
+@cuda.jit
+def k_conv3x3_bwd_pesos(x, dz, dw, n, cin, cout, H, W):
+    """dw[co,ci,ky,kx] = sum_{b,y,x} dz[b,co,y,x] * x[b,ci,y+ky-1,x+kx-1].
+    Un bloque por peso; sus 256 hilos reparten n*H*W terminos y los reducen en memoria compartida."""
+    sm = cuda.shared.array(RED, float32)
+    tid = cuda.threadIdx.x
+    widx = cuda.blockIdx.x                   # = ((co*cin + ci)*3 + ky)*3 + kx
+    kx = widx % 3
+    t = widx // 3
+    ky = t % 3
+    t = t // 3
+    ci = t % cin
+    co = t // cin
+    acc = float32(0.0)
+    total = n * H * W
+    i = tid
+    while i < total:
+        xo = i % W
+        r = i // W
+        yo = r % H
+        b = r // H
+        yi = yo + ky - 1
+        xi = xo + kx - 1
+        if yi >= 0 and yi < H and xi >= 0 and xi < W:
+            acc += dz[((b * cout + co) * H + yo) * W + xo] * x[((b * cin + ci) * H + yi) * W + xi]
+        i += RED
+    sm[tid] = acc
+    cuda.syncthreads()
+    s = RED // 2
+    while s > 0:
+        if tid < s:
+            sm[tid] += sm[tid + s]
+        cuda.syncthreads()
+        s //= 2
+    if tid == 0:
+        dw[widx] = sm[0]
+
+@cuda.jit
+def k_conv_bwd_sesgo(dz, db, n, cout, HW):
+    """db[co] = sum_{b,pixel} dz[b,co,pixel]  (un bloque por canal de salida)."""
+    sm = cuda.shared.array(RED, float32)
+    tid = cuda.threadIdx.x
+    co = cuda.blockIdx.x
+    acc = float32(0.0)
+    total = n * HW
+    i = tid
+    while i < total:
+        b = i // HW
+        r = i % HW
+        acc += dz[(b * cout + co) * HW + r]
+        i += RED
+    sm[tid] = acc
+    cuda.syncthreads()
+    s = RED // 2
+    while s > 0:
+        if tid < s:
+            sm[tid] += sm[tid + s]
+        cuda.syncthreads()
+        s //= 2
+    if tid == 0:
+        db[co] = sm[0]
+
+@cuda.jit
+def k_conv3x3_bwd_entrada(dz, w, dx, n, cin, cout, H, W):
+    """dx[b,ci,y,x] = sum_{co,ky,kx} dz[b,co,y-ky+1,x-kx+1] * w[co,ci,ky,kx]"""
+    xi = cuda.blockIdx.x * TILE + cuda.threadIdx.x
+    yi = cuda.blockIdx.y * TILE + cuda.threadIdx.y
+    z = cuda.blockIdx.z                      # z = b * cin + ci
+    if xi < W and yi < H:
+        b = z // cin
+        ci = z % cin
+        acc = float32(0.0)
+        for co in range(cout):
+            zbase = (b * cout + co) * H * W
+            wbase = (co * cin + ci) * 9
+            for ky in range(3):
+                yo = yi - ky + 1
+                if yo >= 0 and yo < H:
+                    for kx in range(3):
+                        xo = xi - kx + 1
+                        if xo >= 0 and xo < W:
+                            acc += dz[zbase + yo * W + xo] * w[wbase + ky * 3 + kx]
+        dx[(z * H + yi) * W + xi] = acc
+
+@cuda.jit
+def k_adam(p, g, m, v, size, lr, beta1, beta2, eps, wd, bc1, bc2):
+    i = cuda.grid(1)
+    if i < size:
+        b1 = float32(beta1)
+        b2 = float32(beta2)
+        gi = g[i] + float32(wd) * p[i]
+        mi = b1 * m[i] + (float32(1.0) - b1) * gi
+        vi = b2 * v[i] + (float32(1.0) - b2) * gi * gi
+        m[i] = mi
+        v[i] = vi
+        denom = math.sqrt(vi) / math.sqrt(float32(bc2)) + float32(eps)
+        p[i] = p[i] - (float32(lr) / float32(bc1)) * mi / denom
+
+Procesos de preparación: 16 (núcleos lógicos: 16)
+[FASE] >>> carga_resize (prep_datos)
+[FASE] <<< carga_resize: 1.860 s
+[FASE] >>> split_estratificado (prep_datos)
+[FASE] <<< split_estratificado: 0.001 s
+[FASE] >>> guardar_npz (prep_datos)
+[FASE] <<< guardar_npz: 6.078 s
+[FASE] >>> leer_npz (prep_datos)
+[FASE] <<< leer_npz: 0.790 s
+train: (12180, 64, 64, 3), val: (2610, 64, 64, 3), test: (2610, 64, 64, 3), dtype=uint8
+Datos de entrenamiento idénticos a la preparación secuencial: True
+[FASE] >>> compilacion_jit (jit)
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 96 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 64 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 8 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 2 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 32 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+[FASE] <<< compilacion_jit: 1.511 s
+Parámetros entrenables: 1,057,533   (models.SmallCNN: 1,057,533)
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 2 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 18 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 15 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+[FASE] >>> transferencia_h2d (h2d)
+[FASE] <<< transferencia_h2d: 0.049 s
+Copiados 203.9 MB a la VRAM
+[FASE] >>> entrenamiento (entrenamiento)
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 64 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 10 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 4 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 32 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 25 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 8 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+epoch 1/15 train_loss=3.1262 train_acc=0.1121 val_loss=2.6310 val_acc=0.2441 (1.6s)
+epoch 2/15 train_loss=2.4505 train_acc=0.2460 val_loss=2.0432 val_acc=0.3935 (1.4s)
+epoch 3/15 train_loss=2.0573 train_acc=0.3473 val_loss=1.7304 val_acc=0.4563 (1.4s)
+epoch 4/15 train_loss=1.7781 train_acc=0.4244 val_loss=1.4686 val_acc=0.5517 (1.4s)
+epoch 5/15 train_loss=1.5535 train_acc=0.4840 val_loss=1.2127 val_acc=0.6425 (1.4s)
+epoch 6/15 train_loss=1.3780 train_acc=0.5383 val_loss=1.0890 val_acc=0.6651 (1.4s)
+epoch 7/15 train_loss=1.2327 train_acc=0.5823 val_loss=0.9455 val_acc=0.7291 (1.4s)
+epoch 8/15 train_loss=1.1309 train_acc=0.6087 val_loss=0.8785 val_acc=0.7356 (1.4s)
+epoch 9/15 train_loss=1.0201 train_acc=0.6466 val_loss=0.8317 val_acc=0.7192 (1.4s)
+epoch 10/15 train_loss=0.9683 train_acc=0.6617 val_loss=0.7443 val_acc=0.7690 (1.4s)
+epoch 11/15 train_loss=0.8936 train_acc=0.6878 val_loss=0.7051 val_acc=0.7720 (1.4s)
+epoch 12/15 train_loss=0.8774 train_acc=0.6887 val_loss=0.6113 val_acc=0.8172 (1.4s)
+epoch 13/15 train_loss=0.7992 train_acc=0.7242 val_loss=0.5991 val_acc=0.8123 (1.4s)
+epoch 14/15 train_loss=0.7521 train_acc=0.7331 val_loss=0.5368 val_acc=0.8452 (1.4s)
+epoch 15/15 train_loss=0.7404 train_acc=0.7347 val_loss=0.5478 val_acc=0.8218 (1.4s)
+[FASE] <<< entrenamiento: 20.653 s
+Tue Nov 17 23:59:05 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 75%   77C    P2            249W /  285W |    3319MiB /  12282MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+
+VRAM en uso: 1590 MB de 12282 MB
+[FASE] >>> evaluacion_test (evaluacion)
+[FASE] <<< evaluacion_test: 0.042 s
+Test: loss=0.5573  accuracy=0.8234
+[BENCH] resultados guardados en C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\resultados\crudo\cuda_rep1.json
+                  fase          grupo  en_total  duracion_s
+0         carga_resize     prep_datos      True    1.860360
+1  split_estratificado     prep_datos      True    0.001274
+2          guardar_npz     prep_datos      True    6.078261
+3             leer_npz     prep_datos      True    0.790401
+4      compilacion_jit            jit     False    1.511174
+5    transferencia_h2d            h2d      True    0.049406
+6        entrenamiento  entrenamiento      True   20.653137
+7      evaluacion_test     evaluacion      True    0.042423
+TOTAL del pipeline CUDA (sin compilación JIT): 29.48 s
+<IPython.core.display.Markdown object>
+<IPython.core.display.Markdown object>
+Tiempo por época: secuencial 13.31 s | CUDA 1.377 s | speedup 9.7x
+<Figure size 1000x480 with 1 Axes>
+<Figure size 850x450 with 1 Axes>
+<Figure size 1200x420 with 2 Axes>
+PyTorch importado en este notebook: False
+[nb] copia ejecutada: C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\resultados\notebooks_ejecutados\cuda_rep1.ipynb

@@ -1,0 +1,34 @@
+{
+  "python": "3.13.7",
+  "sistema": "Windows 11",
+  "procesador": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+  "nucleos_logicos": 16,
+  "nucleos_fisicos": 8,
+  "ram_total_gb": 31.1,
+  "gpu_nvidia_smi": {
+    "nombre": "NVIDIA GeForce RTX 4070 Ti",
+    "driver": "610.88",
+    "memoria_total_mb": "12282"
+  },
+  "torch": {
+    "version": "2.11.0+cpu",
+    "hilos_cpu_por_defecto": 8,
+    "cuda_en_torch": false
+  },
+  "numba": {
+    "version": "0.68.1",
+    "cuda_disponible": true
+  },
+  "gpu_numba": {
+    "nombre": "NVIDIA GeForce RTX 4070 Ti",
+    "compute_capability": [
+      8,
+      9
+    ],
+    "multiprocesadores": 60,
+    "max_hilos_por_bloque": 1024,
+    "memoria_total_mb": 12282,
+    "memoria_libre_mb": 11056
+  },
+  "cuda_disponible": true
+}

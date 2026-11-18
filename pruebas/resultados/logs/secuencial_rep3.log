@@ -1,0 +1,48 @@
+[nb] 7 celdas con la etiqueta 'benchmark'
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Device: cpu | hilos de PyTorch en CPU: 1
+Clases (29): ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'del', 'nothing', 'space']
+ConfigBench(etiqueta='secuencial', arquitectura='SmallCNN', n_per_class=600, img_size=64, epochs=15, batch_size=128, lr=0.001, weight_decay=0.0001, seed=42, workers=1, seq_threads=1, rep=3, raw_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\raw\\asl_alphabet_train\\asl_alphabet_train', processed_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\processed\\bench_secuencial', salida_dir='C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\pruebas\\resultados')
+Hilos de PyTorch: 1 | dispositivo: cpu
+[FASE] >>> carga_resize (prep_datos)
+[FASE] <<< carga_resize: 8.794 s
+[FASE] >>> split_estratificado (prep_datos)
+[FASE] <<< split_estratificado: 0.001 s
+[FASE] >>> guardar_npz (prep_datos)
+[FASE] <<< guardar_npz: 5.928 s
+[FASE] >>> leer_npz (prep_datos)
+[FASE] <<< leer_npz: 0.781 s
+train: (12180, 64, 64, 3), val: (2610, 64, 64, 3), test: (2610, 64, 64, 3), dtype=uint8
+Parámetros entrenables: 1,057,533
+[FASE] >>> entrenamiento (entrenamiento)
+epoch 1/15 train_loss=3.1745 train_acc=0.0984 val_loss=2.6962 val_acc=0.2337 (12.5s)
+epoch 2/15 train_loss=2.4479 train_acc=0.2588 val_loss=2.0331 val_acc=0.4050 (12.9s)
+epoch 3/15 train_loss=1.9886 train_acc=0.3637 val_loss=1.6617 val_acc=0.4950 (13.0s)
+epoch 4/15 train_loss=1.6895 train_acc=0.4424 val_loss=1.4149 val_acc=0.5487 (13.1s)
+epoch 5/15 train_loss=1.4878 train_acc=0.5061 val_loss=1.2392 val_acc=0.5962 (13.2s)
+epoch 6/15 train_loss=1.3433 train_acc=0.5479 val_loss=1.0704 val_acc=0.6732 (13.1s)
+epoch 7/15 train_loss=1.2245 train_acc=0.5836 val_loss=0.9473 val_acc=0.7149 (13.1s)
+epoch 8/15 train_loss=1.0958 train_acc=0.6252 val_loss=0.8600 val_acc=0.7203 (13.7s)
+epoch 9/15 train_loss=1.0178 train_acc=0.6565 val_loss=0.7452 val_acc=0.7728 (13.8s)
+epoch 10/15 train_loss=0.9423 train_acc=0.6778 val_loss=0.7185 val_acc=0.7801 (15.3s)
+epoch 11/15 train_loss=0.8965 train_acc=0.6917 val_loss=0.6542 val_acc=0.7950 (14.4s)
+epoch 12/15 train_loss=0.8487 train_acc=0.7053 val_loss=0.6809 val_acc=0.7812 (14.0s)
+epoch 13/15 train_loss=0.7875 train_acc=0.7252 val_loss=0.5751 val_acc=0.8310 (13.4s)
+epoch 14/15 train_loss=0.7494 train_acc=0.7398 val_loss=0.6389 val_acc=0.7939 (13.9s)
+epoch 15/15 train_loss=0.7079 train_acc=0.7572 val_loss=0.5161 val_acc=0.8425 (13.9s)
+[FASE] <<< entrenamiento: 204.236 s
+[FASE] >>> evaluacion_test (evaluacion)
+[FASE] <<< evaluacion_test: 1.580 s
+Test: loss=0.5313  accuracy=0.8483
+[BENCH] resultados guardados en C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\resultados\crudo\secuencial_rep3.json
+                  fase          grupo  duracion_s
+0         carga_resize     prep_datos    8.794316
+1  split_estratificado     prep_datos    0.001297
+2          guardar_npz     prep_datos    5.928059
+3             leer_npz     prep_datos    0.781024
+4        entrenamiento  entrenamiento  204.236255
+5      evaluacion_test     evaluacion    1.580303
+TOTAL del pipeline secuencial: 221.32 s
+[nb] copia ejecutada: C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\resultados\notebooks_ejecutados\secuencial_rep3.ipynb

@@ -1,0 +1,204 @@
+{
+  "config": {
+    "etiqueta": "cuda",
+    "arquitectura": "SmallCNN",
+    "n_per_class": 600,
+    "img_size": 64,
+    "epochs": 15,
+    "batch_size": 128,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "seed": 42,
+    "workers": 16,
+    "seq_threads": 1,
+    "rep": 2,
+    "raw_dir": "C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\raw\\asl_alphabet_train\\asl_alphabet_train",
+    "processed_dir": "C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\data\\processed\\bench_cuda",
+    "salida_dir": "C:\\Users\\cr57b\\Documentos\\Proyecto_3_deep_learning\\pruebas\\resultados"
+  },
+  "meta": {
+    "sistema": {
+      "python": "3.13.7",
+      "sistema": "Windows 11",
+      "procesador": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+      "nucleos_logicos": 16,
+      "nucleos_fisicos": 8,
+      "ram_total_gb": 31.1,
+      "gpu_nvidia_smi": {
+        "nombre": "NVIDIA GeForce RTX 4070 Ti",
+        "driver": "610.88",
+        "memoria_total_mb": "12282"
+      }
+    },
+    "gpu": {
+      "nombre": "NVIDIA GeForce RTX 4070 Ti",
+      "compute_capability": [
+        8,
+        9
+      ],
+      "multiprocesadores": 60,
+      "max_hilos_por_bloque": 1024,
+      "memoria_total_mb": 12282,
+      "memoria_usada_mb": 1590
+    },
+    "numba": "0.68.1",
+    "dispositivo": "cuda"
+  },
+  "fases": [
+    {
+      "fase": "carga_resize",
+      "grupo": "prep_datos",
+      "en_total": true,
+      "inicio_epoch": 1794981550.7985427,
+      "fin_epoch": 1794981552.6495843,
+      "duracion_s": 1.8510416000026453
+    },
+    {
+      "fase": "split_estratificado",
+      "grupo": "prep_datos",
+      "en_total": true,
+      "inicio_epoch": 1794981552.6503289,
+      "fin_epoch": 1794981552.6517494,
+      "duracion_s": 0.0014205000006768387
+    },
+    {
+      "fase": "guardar_npz",
+      "grupo": "prep_datos",
+      "en_total": true,
+      "inicio_epoch": 1794981552.6522117,
+      "fin_epoch": 1794981558.6387079,
+      "duracion_s": 5.986496299999999
+    },
+    {
+      "fase": "leer_npz",
+      "grupo": "prep_datos",
+      "en_total": true,
+      "inicio_epoch": 1794981558.639349,
+      "fin_epoch": 1794981559.4190633,
+      "duracion_s": 0.7797142999988864
+    },
+    {
+      "fase": "compilacion_jit",
+      "grupo": "jit",
+      "en_total": false,
+      "inicio_epoch": 1794981560.0000277,
+      "fin_epoch": 1794981561.4345791,
+      "duracion_s": 1.4345514999986335
+    },
+    {
+      "fase": "transferencia_h2d",
+      "grupo": "h2d",
+      "en_total": true,
+      "inicio_epoch": 1794981561.4395287,
+      "fin_epoch": 1794981561.4886622,
+      "duracion_s": 0.049133500000607455
+    },
+    {
+      "fase": "entrenamiento",
+      "grupo": "entrenamiento",
+      "en_total": true,
+      "inicio_epoch": 1794981561.4991083,
+      "fin_epoch": 1794981582.1968474,
+      "duracion_s": 20.697739100000035
+    },
+    {
+      "fase": "evaluacion_test",
+      "grupo": "evaluacion",
+      "en_total": true,
+      "inicio_epoch": 1794981582.2604358,
+      "fin_epoch": 1794981582.3028758,
+      "duracion_s": 0.04243999999744119
+    }
+  ],
+  "total_s": 29.40798530000029,
+  "historial": {
+    "train_loss": [
+      3.126195928263547,
+      2.450490365866174,
+      2.057284129977422,
+      1.7780698378489326,
+      1.5534994291358786,
+      1.3780190052853039,
+      1.2326889464029147,
+      1.1309244791666666,
+      1.0201131786227422,
+      0.9682626007029967,
+      0.8936306156352627,
+      0.8773786272321429,
+      0.7992446473470853,
+      0.7521026561217159,
+      0.7403887969519705
+    ],
+    "train_acc": [
+      0.11206896551724138,
+      0.24597701149425288,
+      0.3472906403940887,
+      0.42438423645320195,
+      0.4839901477832512,
+      0.5383415435139574,
+      0.5823481116584565,
+      0.6087027914614122,
+      0.646551724137931,
+      0.6616584564860427,
+      0.6878489326765189,
+      0.6886699507389162,
+      0.7242200328407224,
+      0.7330870279146141,
+      0.7347290640394089
+    ],
+    "val_loss": [
+      2.631015774664751,
+      2.043185763888889,
+      1.7304423715876436,
+      1.468572366648707,
+      1.2127313255806993,
+      1.0889730753113027,
+      0.9455498121707375,
+      0.878472689924569,
+      0.8316716804358237,
+      0.7442959957195882,
+      0.7050834568067529,
+      0.6112787824024186,
+      0.5990572523796696,
+      0.5367759967672414,
+      0.5478164380537596
+    ],
+    "val_acc": [
+      0.24406130268199233,
+      0.39348659003831415,
+      0.45632183908045976,
+      0.5517241379310345,
+      0.6425287356321839,
+      0.6651340996168582,
+      0.7291187739463602,
+      0.735632183908046,
+      0.7191570881226054,
+      0.7689655172413793,
+      0.7720306513409961,
+      0.8172413793103448,
+      0.8122605363984674,
+      0.8452107279693487,
+      0.8218390804597702
+    ],
+    "epoch_time": [
+      1.5615177154541016,
+      1.3567838668823242,
+      1.3608427047729492,
+      1.35904860496521,
+      1.361558437347412,
+      1.360210657119751,
+      1.360156536102295,
+      1.3583927154541016,
+      1.3628332614898682,
+      1.3648202419281006,
+      1.3633449077606201,
+      1.3890929222106934,
+      1.3677444458007812,
+      1.3961601257324219,
+      1.3714563846588135
+    ]
+  },
+  "test_loss": 0.5573065863715277,
+  "test_acc": 0.8233716475095786,
+  "n_parametros": 1057533
+}

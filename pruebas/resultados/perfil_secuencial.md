@@ -1,0 +1,66 @@
+# Analisis de la solucion secuencial (CPU)
+
+Parametros: 17,400 imagenes (600/clase, 29 clases), 64x64, batch 128, 15 epocas, SmallCNN (1,057,533 parametros), 1 hilo(s) de PyTorch.
+
+## Tabla 1. Operaciones identificadas (de la imagen al resultado)
+
+| No. | Operacion identificada | Descripcion de su funcionamiento |
+|---|---|---|
+| 1 | Listado y submuestreo | Se listan los .jpg de cada clase y se eligen al azar `n_per_class` por clase (rng con semilla). |
+| 2 | Lectura + decodificacion JPG | Se lee el archivo y se decodifica a pixeles RGB 200x200 (CPU, acceso a disco). |
+| 3 | Redimensionado | Interpolacion bilineal 200x200 -> 64x64 por imagen. |
+| 4 | Particion estratificada | Indices train/val/test 70/15/15 por clase; se guardan en .npz. |
+| 5 | Armado de lote | `Dataset.__getitem__`: uint8 HWC -> float32 CHW /255; `DataLoader` mezcla y apila 128 imagenes. |
+| 6 | Forward de la CNN | Conv3x3(3->16)+ReLU+MaxPool, Conv3x3(16->32)+ReLU+MaxPool, Linear(8192->128)+ReLU+Dropout, Linear(128->29). |
+| 7 | Perdida | Entropia cruzada (softmax + log-verosimilitud) promediada sobre el lote. |
+| 8 | Backward | Retropropagacion: gradientes de convoluciones, capas lineales, ReLU, pooling y dropout. |
+| 9 | Actualizacion Adam | Momentos de primer/segundo orden y actualizacion de los 8 tensores de parametros. |
+| 10 | Evaluacion | Forward sin dropout sobre validacion (cada epoca) y test; argmax y accuracy. |
+
+## Tabla 2. Operaciones repetitivas y cantidad de repeticiones
+
+| Operacion repetitiva | Datos que procesa | Cantidad de repeticiones |
+|---|---|---|
+| Lectura + decodificacion + resize | 1 imagen JPG 200x200 | 17,400 (una vez por imagen de la submuestra; el dataset completo tiene 87,000) |
+| Armado de lote (/255, CHW) | 1 imagen 64x64x3 | 224,460 = (12,180 train + 2,610 val) x 15 epocas + 2,610 test |
+| Convolucion 3x3 + ReLU + MaxPool (x2 capas) | lote [128,3,64,64] | forward: 1,440 lotes de train + 315 de val + 21 de test; backward: 1,440 |
+| Capas lineales (matmul) | [128,8192] x [8192,128] y [128,128] x [128,29] | igual que arriba (forward) y 2 matmul extra por capa en backward |
+| Producto-acumulacion (MAC) por imagen | 7,540,352 MAC forward (conv1 1,769,472; conv2 4,718,592; fc1 1,048,576; fc2 3,712) | 182,700 imagenes de train x ~3 (fwd+bwd) = 4.133e+12 MAC |
+| Actualizacion Adam | 8 tensores, 1,057,533 parametros | 1,440 pasos |
+
+## Tabla 3. Tiempo medido por imagen en la preparacion de datos (CPU, 1 proceso)
+
+| Etapa | ms por imagen | % |
+|---|---|---|
+| leer_archivo | 0.105 | 18.7% |
+| decodificar_jpg_a_rgb | 0.318 | 56.5% |
+| resize_bilineal | 0.140 | 24.8% |
+| **Total por imagen** | **0.563** | 100% |
+
+Proyeccion para 17,400 imagenes en un solo proceso: **9.8 s** (sin contar particion ni guardado).
+
+## Tabla 4. Desglose medido de un paso de entrenamiento (CPU)
+
+| Etapa | ms por lote | % |
+|---|---|---|
+| armar_lote (Dataset+DataLoader: /255, permutar a CHW, apilar) | 3.50 | 2.8% |
+| forward (conv+ReLU+pool+lineal) | 77.27 | 62.1% |
+| perdida (entropia cruzada) | 0.08 | 0.1% |
+| backward (autograd) | 40.98 | 32.9% |
+| optimizador Adam | 2.58 | 2.1% |
+| **Total por lote** | **124.41** | 100% |
+
+Proyeccion de entrenamiento: 179.2 s (1,440 pasos), sin contar la validacion de cada epoca.
+
+## Tabla 5. Operadores que mas tiempo de CPU consumen (torch.profiler)
+
+| Operador | Llamadas | CPU propio (ms) | % |
+|---|---|---|---|
+| `aten::max_pool2d_with_indices` | 16 | 510.7 | 47.0% |
+| `aten::convolution_backward` | 16 | 216.0 | 19.9% |
+| `aten::mkldnn_convolution` | 16 | 140.8 | 12.9% |
+| `aten::mm` | 32 | 44.8 | 4.1% |
+| `aten::threshold_backward` | 24 | 28.9 | 2.7% |
+| `aten::max_pool2d_with_indices_backward` | 16 | 24.4 | 2.2% |
+| `aten::addmm` | 16 | 21.7 | 2.0% |
+| `aten::sqrt` | 64 | 14.0 | 1.3% |

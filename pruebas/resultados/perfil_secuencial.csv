@@ -1,0 +1,9 @@
+grupo,etapa,segundos
+prep_por_imagen,leer_archivo,0.000105
+prep_por_imagen,decodificar_jpg_a_rgb,0.000318
+prep_por_imagen,resize_bilineal,0.000140
+entrenamiento_por_lote,armar_lote (Dataset+DataLoader: /255, permutar a CHW, apilar),0.003499
+entrenamiento_por_lote,forward (conv+ReLU+pool+lineal),0.077271
+entrenamiento_por_lote,perdida (entropia cruzada),0.000077
+entrenamiento_por_lote,backward (autograd),0.040983
+entrenamiento_por_lote,optimizador Adam,0.002585

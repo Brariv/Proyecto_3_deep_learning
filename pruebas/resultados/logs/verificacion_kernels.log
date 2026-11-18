@@ -1,0 +1,79 @@
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 4 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 32 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 16 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\verificar_kernels.py:118: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  check(f"perdida ({etiqueta})", abs(loss - float(loss_ref)) < tol * max(1, abs(float(loss_ref))),
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 96 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 8 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 2 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 2 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 1 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 18 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\.venv\Lib\site-packages\numba_cuda\numba\cuda\dispatcher.py:748: NumbaPerformanceWarning: [1mGrid size 15 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+GPU real: NVIDIA GeForce RTX 4070 Ti
+
+[1-2] Forward y backward vs PyTorch (lote completo y lote parcial)
+  [OK ] logits (lote completo n=32) err_rel=9.60e-07
+  [OK ] perdida (lote completo n=32) cuda=3.38783 torch=3.38783
+  [OK ] grad w1  (lote completo n=32) err_rel=3.65e-07
+  [OK ] grad b1  (lote completo n=32) err_rel=2.82e-07
+  [OK ] grad w2  (lote completo n=32) err_rel=3.07e-07
+  [OK ] grad b2  (lote completo n=32) err_rel=1.98e-07
+  [OK ] grad wf1 (lote completo n=32) err_rel=4.23e-07
+  [OK ] grad bf1 (lote completo n=32) err_rel=1.72e-07
+  [OK ] grad wf2 (lote completo n=32) err_rel=1.03e-06
+  [OK ] grad bf2 (lote completo n=32) err_rel=8.00e-08
+  [OK ] logits (lote parcial n=3) err_rel=7.93e-07
+  [OK ] perdida (lote parcial n=3) cuda=3.37858 torch=3.37858
+  [OK ] grad w1  (lote parcial n=3) err_rel=2.23e-07
+  [OK ] grad b1  (lote parcial n=3) err_rel=3.72e-07
+  [OK ] grad w2  (lote parcial n=3) err_rel=2.62e-07
+  [OK ] grad b2  (lote parcial n=3) err_rel=2.39e-07
+  [OK ] grad wf1 (lote parcial n=3) err_rel=3.55e-07
+  [OK ] grad bf1 (lote parcial n=3) err_rel=1.09e-07
+  [OK ] grad wf2 (lote parcial n=3) err_rel=3.53e-06
+  [OK ] grad bf2 (lote parcial n=3) err_rel=8.98e-08
+
+[3] Un paso de Adam (lr=1e-3, weight_decay=1e-4) vs torch.optim.Adam
+  [OK ] delta Adam w1  err_rel=6.64e-05
+  [OK ] delta Adam b1  err_rel=7.71e-06
+  [OK ] delta Adam w2  err_rel=9.12e-05
+  [OK ] delta Adam b2  err_rel=1.05e-05
+  [OK ] delta Adam wf1 err_rel=1.87e-02
+  [OK ] delta Adam bf1 err_rel=7.29e-06
+  [OK ] delta Adam wf2 err_rel=1.15e-02
+  [OK ] delta Adam bf2 err_rel=9.76e-06
+
+[4] Dropout (p=0.3)
+  [OK ] fraccion conservada ~ 1-p 0.694
+  [OK ] escala 1/(1-p) 
+  [OK ] evaluacion: mascara = 1 
+
+[5] Parametros vs models.SmallCNN
+  [OK ] n_parametros == models.SmallCNN 1,057,533 vs 1,057,533
+
+[6] La perdida baja al entrenar
+  [OK ] perdida final < perdida inicial 3.365 -> 0.017
+
+VERIFICACION EXITOSA: los kernels CUDA coinciden con la referencia de PyTorch.

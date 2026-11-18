@@ -1,0 +1,60 @@
+=== CPU / sistema ===
+  python: 3.13.7
+  sistema: Windows 11
+  procesador: AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+  nucleos_logicos: 16
+  nucleos_fisicos: 8
+  ram_total_gb: 31.1
+  gpu_nvidia_smi: {'nombre': 'NVIDIA GeForce RTX 4070 Ti', 'driver': '610.88', 'memoria_total_mb': '12282'}
+=== PyTorch (linea base secuencial) ===
+  {'version': '2.11.0+cpu', 'hilos_cpu_por_defecto': 8, 'cuda_en_torch': False}
+=== Numba CUDA ===
+  numba 0.68.1 | cuda.is_available() = True
+  GPU: {'nombre': 'NVIDIA GeForce RTX 4070 Ti', 'compute_capability': [8, 9], 'multiprocesadores': 60, 'max_hilos_por_bloque': 1024, 'memoria_total_mb': 12282, 'memoria_libre_mb': 11056}
+=== nvidia-smi ===
+Tue Nov 17 23:58:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   47C    P0             22W /  285W |    2966MiB /  12282MiB |     25%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           12396      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+
+[entorno] guardado en C:\Users\cr57b\Documentos\Proyecto_3_deep_learning\pruebas\resultados\entorno.json | Windows-11-10.0.26200-SP0 | PID 12396

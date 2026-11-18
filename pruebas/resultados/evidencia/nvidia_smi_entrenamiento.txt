@@ -1,0 +1,1122 @@
+﻿=== 11:58:20 PM ===
+Tue Nov 17 23:58:20 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   47C    P5             21W /  285W |    2793MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:25 PM ===
+Tue Nov 17 23:58:25 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   48C    P2             41W /  285W |    3120MiB /  12282MiB |      2%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           27368      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:30 PM ===
+Tue Nov 17 23:58:30 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   48C    P3             42W /  285W |    2786MiB /  12282MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:35 PM ===
+Tue Nov 17 23:58:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   48C    P2             40W /  285W |    2957MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:40 PM ===
+Tue Nov 17 23:58:40 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   48C    P3             34W /  285W |    2957MiB /  12282MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:45 PM ===
+Tue Nov 17 23:58:45 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   67C    P2             84W /  285W |    3321MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:50 PM ===
+Tue Nov 17 23:58:50 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 34%   74C    P2            244W /  285W |    3334MiB /  12282MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:58:55 PM ===
+Tue Nov 17 23:58:55 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 59%   76C    P2            247W /  285W |    3333MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:00 PM ===
+Tue Nov 17 23:59:00 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 72%   77C    P2            249W /  285W |    3319MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:05 PM ===
+Tue Nov 17 23:59:06 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 75%   57C    P2            176W /  285W |    3319MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           30588      C   ...am Files\Python313\python.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:11 PM ===
+Tue Nov 17 23:59:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 60%   51C    P2             30W /  285W |    2944MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:16 PM ===
+Tue Nov 17 23:59:16 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 38%   50C    P2             41W /  285W |    2955MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:21 PM ===
+Tue Nov 17 23:59:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 36%   48C    P5             23W /  285W |    3128MiB /  12282MiB |      2%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:26 PM ===
+Tue Nov 17 23:59:26 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 43%   74C    P2            245W /  285W |    3334MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:31 PM ===
+Tue Nov 17 23:59:31 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 64%   75C    P2            248W /  285W |    3328MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:36 PM ===
+Tue Nov 17 23:59:36 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 70%   76C    P2            248W /  285W |    3329MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:41 PM ===
+Tue Nov 17 23:59:41 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 72%   76C    P2            246W /  285W |    3372MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13216      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:46 PM ===
+Tue Nov 17 23:59:46 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 66%   50C    P3             29W /  285W |    2837MiB /  12282MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:51 PM ===
+Tue Nov 17 23:59:51 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 39%   50C    P2             41W /  285W |    3008MiB /  12282MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 11:59:56 PM ===
+Tue Nov 17 23:59:56 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 36%   48C    P5             23W /  285W |    3163MiB /  12282MiB |     15%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 12:00:01 AM ===
+Wed Nov 18 00:00:01 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 39%   74C    P2            244W /  285W |    3371MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 12:00:06 AM ===
+Wed Nov 18 00:00:06 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 61%   75C    P2            239W /  285W |    3381MiB /  12282MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 12:00:11 AM ===
+Wed Nov 18 00:00:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 68%   76C    P2            243W /  285W |    3466MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           10116    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 12:00:16 AM ===
+Wed Nov 18 00:00:16 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 69%   75C    P2            233W /  285W |    3480MiB /  12282MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30252      C   ...am Files\Python313\python.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+=== 12:00:21 AM ===
+Wed Nov 18 00:00:21 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4070 Ti   WDDM  |   00000000:01:00.0  On |                  N/A |
+| 71%   53C    P3             57W /  285W |    2715MiB /  12282MiB |      2%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5344    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A            6116    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           11044    C+G   ...lpaper_engine\wallpaper32.exe      N/A      |
+|    0   N/A  N/A           11828    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           12348    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           13732    C+G   ...cord\app-1.0.9269\Discord.exe      N/A      |
+|    0   N/A  N/A           14560    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           14568    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           15724    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           15944    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A           16228    C+G   ...rsair iCUE5 Software\iCUE.exe      N/A      |
+|    0   N/A  N/A           16712    C+G   ....0.4341.46\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           17908    C+G   ...IA App\CEF\NVIDIA Overlay.exe      N/A      |
+|    0   N/A  N/A           20152    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           21140    C+G   ...D\CNext\CNext\AMDRSSrcExt.exe      N/A      |
+|    0   N/A  N/A           21348    C+G   ...Next\CNext\RadeonSoftware.exe      N/A      |
+|    0   N/A  N/A           21544    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           22300    C+G   ...se 3 Host\Razer Synapse 3.exe      N/A      |
+|    0   N/A  N/A           22392    C+G   ...5.86\Signal-x64\SignalRgb.exe      N/A      |
+|    0   N/A  N/A           24824    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           24936    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
+|    0   N/A  N/A           27060    C+G   ....0.4341.60\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           29564    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           30484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
++-----------------------------------------------------------------------------------------+
